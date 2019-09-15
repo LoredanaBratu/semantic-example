@@ -1,25 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import "./App.css";
+import FirstButton from "./components/semantic/FirstEx";
+import Breadcrumb from "./components/semantic/BreadCrumb";
+import Accordion from "./components/semantic/Accordion";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <React.Fragment>
+        <div className="App">
+          <Switch>
+            <Route exact path="/" component={FirstButton} />
+            <Route exact path="/breadcrumb" component={Breadcrumb} />
+            <Route exact path="/accordion" component={Accordion} />
+          </Switch>
+        </div>
+      </React.Fragment>
+    </Router>
   );
 }
 
